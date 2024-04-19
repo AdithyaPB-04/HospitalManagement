@@ -2,6 +2,13 @@ import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import User from "../modules/user/userModel";
 
+
+declare module 'express' {
+  interface Request {
+      user?: any;
+  }
+}
+
 export const isAdminAuthenticated = async (
   req: any,
   res: Response,

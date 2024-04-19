@@ -4,6 +4,7 @@ import validator from "validator";
 import bcrypt from "bcrypt";
 
 export class User extends Model {
+    [x: string]: any;
   // public password!: string; // Define password property explicitly
 }
 

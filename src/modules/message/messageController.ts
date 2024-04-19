@@ -1,5 +1,5 @@
 import { Message } from "./messageModel";
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 
 export const sendMessage = async (req: Request, res: Response) => {
     try{
@@ -20,3 +20,10 @@ export const sendMessage = async (req: Request, res: Response) => {
         res.status(500).send("Internal Server Error")
     }
 };
+
+export const getAllMessages = async(req:Request,res:Response,next:NextFunction)=>{
+  const messages = await Message.findAll();
+  res.status(200).send({
+    messages
+  });
+}

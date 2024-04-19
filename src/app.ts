@@ -11,6 +11,7 @@ import { Request,Response,Application } from 'express';
 
 import message from "./router/router";
 import user from "./router/router";
+import appointment from "./router/router";
 
 dotenv.config();
 
@@ -42,6 +43,7 @@ cloudinary.config({
 
 app.use('/api/messages',message);
 app.use('/api/users',user);
+app.use('/api/appointments',appointment);
 
 app.get('/api/test',(req:Request,res:Response)=>{
     res.send("Everything is working");
