@@ -235,7 +235,7 @@ export const addNewDoctor = async (req: Request, res: Response, next: NextFuncti
         }
 
         // Create new doctor record
-        await User.create({
+        const user = await User.create({
             firstName: firstName,
             lastName: lastName,
             email: email,
@@ -252,7 +252,7 @@ export const addNewDoctor = async (req: Request, res: Response, next: NextFuncti
             }
         });
 
-        res.status(200).send("New Doctor registered");
+        res.status(200).send({"New Doctor registered":user});
     } catch (error) {
         console.error("Internal Server Error:", error);
         res.status(500).send("Internal Server Error");

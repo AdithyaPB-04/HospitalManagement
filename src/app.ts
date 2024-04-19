@@ -3,7 +3,9 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import cookieParser from "cookie-parser";
 import fileUpload from 'express-fileupload';
+import { v2 as cloudinary } from "cloudinary";
 import { Request,Response,Application } from 'express';
+
 // import {errorMiddleware} from "./middleware/errorMiddleware"
 
 
@@ -30,6 +32,12 @@ app.use(fileUpload({
     useTempFiles:true,
     tempFileDir:"/temp/"
 }))
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME ,
+    api_key: process.env.CLOUDINARY_API_KEY ,
+    api_secret: process.env.CLOUDINARY_API_SECRET 
+});
 
 
 app.use('/api/messages',message);

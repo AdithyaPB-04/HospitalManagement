@@ -93,7 +93,7 @@ User.init(
       type: DataTypes.STRING,
     },
     docAvatar: {
-      type: DataTypes.TEXT, // Assuming docAvatar is a JSONB type
+      type: DataTypes.JSON, // Assuming docAvatar is a JSONB type
     },
   },
   {
